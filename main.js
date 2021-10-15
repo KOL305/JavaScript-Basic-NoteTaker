@@ -1,4 +1,3 @@
-var note = {};
 var notes = [];
 var cardID = 0;
 //localStorage{} --> "Notes" --> notes[] --> {cardId: note}
@@ -8,6 +7,7 @@ var cardID = 0;
 document.getElementById("page").addEventListener("load", loadData());
 
 function addNote() {
+    var note = {}
     note["heading"] = document.getElementById("heading").value;
     note["link"] = document.getElementById("link").value;
     note["description"] = document.getElementById("description").value;
@@ -133,6 +133,7 @@ function loadData() {
     console.log("Hi");
     try {
         console.log("There is Data");
+        
         notes = JSON.parse(localStorage.getItem("Notes"))
         for (let i=0; i<notes.length; i++) {
             createCard(notes[i],i);
